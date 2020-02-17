@@ -1,6 +1,11 @@
 import modularLoad from "modularload";
 import LocomotiveScroll from "locomotive-scroll";
 
+let scroll = new LocomotiveScroll({
+  el: document.querySelector("body"),
+  smooth: true
+});
+
 document.load = new modularLoad({
   enterDelay: 300,
   exitDelay: 300
@@ -9,14 +14,17 @@ document.load = new modularLoad({
 const init = () => {
   if (!document.getElementById("app").classList.contains("enter")) {
     document.getElementById("app").classList.add("first");
-    let scroll = new LocomotiveScroll({
-      el: document.querySelector("#app"),
-      smooth: true
-    });
   }
+  scroll.init();
+  scroll.update();
 };
 
 init();
+
+document.load.on('loading',(oldContainer)=>{
+  scroll.scrollTo(top);
+});
+
 document.load.on("loaded", (transition, oldContainer, newContainer) => {
   console.log("👌");
   oldContainer.style.position = "absolute";
@@ -30,8 +38,13 @@ document.load.on("loaded", (transition, oldContainer, newContainer) => {
 });
 
 document.load.on("ready", (transition, newContainer) => {
-  let scroll = new LocomotiveScroll({
-    el: document.querySelector("#app"),
-    smooth: true
-  });
+  scroll.update();
+  if(newContainer.dataset.namespace === 'photos'){
+    console.log("rrrr")
+    let text =  newContainer.querySelector('#anchorLink_1');
+    text.addEventListener('click', (e)=>{
+      console.log(e);
+      scroll.scrollTo('#section_1');
+    });
+  }
 });

@@ -1,0 +1,151 @@
+@import 'reset.scss';
+@import 'variables.scss';
+
+body {
+  background-color: $background-color;
+  font-family: sans-serif;
+  color: $text;
+  nav{
+    z-index:500;
+    background-color: $background-color;
+    position: fixed;
+    width: 100vw;
+    top:0;
+    border-bottom:$accent 1px solid;
+    ul{
+      display:flex;
+      justify-content: space-between;
+      margin-left: 8px;
+      margin-right:8px;
+      li{
+        margin-top:16px;
+        margin-bottom: 16px;
+        a{
+          color: $text;
+          text-decoration:none;
+        }
+      }
+    }
+  }
+
+  #app{
+    width: 80vw;
+    margin: auto;
+    text-align: center;
+    .header{
+      min-height: calc(100vh);
+      display: flex;
+      flex-direction: column;
+      justify-items: center;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      border-bottom: 2px $accent solid;
+      h1{
+        font-family: 'Times New Roman', Times, serif;
+        -webkit-text-stroke: 2px $accent;
+        color:transparent;
+        font-size: 20vh;
+        text-align: center;
+        overflow: hidden;
+        span{
+          transform: translateY(100%);
+          position: relative;
+          display: block;
+        }
+      }
+      a.next{
+        color: $text;
+        text-decoration:none;
+        padding: 8px;
+        border: 1px white solid;
+        transition: 500ms;
+          opacity:0;
+          transform: translateX(-100%);
+          cursor: pointer;
+        &:hover{
+          color:$background-color;
+          background-color:white;
+          transition: 500ms;
+        }
+      } 
+    }
+    .gallery{
+      min-height:100vh;
+    }
+    #section_1{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .bandeau{
+        margin-top: 100px;
+        display: flex;
+        margin-bottom: 100px;
+        img{
+          margin:25px;
+          width: calc(50% - 50px);
+        }
+      }
+      h2{
+        font-family: 'Times New Roman', Times, serif;
+        -webkit-text-stroke: 2px $accent;
+        color: $accent;
+        font-size: 12vh;
+        text-align: center;
+        overflow: hidden;
+        margin-top: 100px;
+      }
+    }
+    .citation{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 50vh;
+      p{
+        width:60vw;
+        font-size: 22px;
+        font-family: 'Courier New', Courier, monospace;
+        color: $accent;
+        margin: auto;
+      }
+    }
+    &.first{
+      .header {
+        span{
+          transform: translateY(0%);
+        }
+        .next{
+          opacity:1;
+          transform: translateX(-0%);
+        }
+      }
+    }
+    &.enter{
+      .header{
+        span{
+          transition:300ms;
+          transform: translateY(0%);
+        }
+        .next{
+          transition: 200ms;
+          opacity:1;
+          transform: translateX(-0%);
+        }
+      }
+    }
+    &.leave{
+      .header{
+        span{
+          transition:300ms;
+          transform: translateY(-100%);
+        }
+        .next{
+          transition: 200ms;
+          opacity: 0;
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
+}

@@ -8,12 +8,13 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "locomotive-scroll": "3.2.11",
-    "modularload": "1.2.5"
+    "locomotive-scroll": "^3.2.11",
+    "modularload": "^1.2.5"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
-    "parcel-bundler": "^1.6.1"
+    "parcel-bundler": "^1.6.1",
+    "sass": "^1.25.0"
   },
   "keywords": []
 }

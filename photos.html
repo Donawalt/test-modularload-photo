@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcel Sandbox</title>
+    <title>Photos</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="src/styles.scss" />
+    <link rel="stylesheet" href="src/styles/styles.scss" />
   </head>
 
   <body>
@@ -14,12 +14,31 @@
         <li><a href="/about.html">About</a></li>
       </ul>
     </nav>
-    <div id="app" data-load-container data-namespace="photos">
-      <section class="header">
+    <div id="app" data-load-container data-namespace="photos" data-scroll-section="">
+      <section class="header" data-scroll="" >
         <h1><span>One day</span></h1>
-        <p id="anchorLink_1" class="next">Just scroll</p>
+        <a id="anchorLink_1" class="next">Just scroll</a>
       </section>
-      <section class="gallery" id="section_1"></section>
+      <section class="gallery" id="section_1" data-scroll="">
+          <h2 data-scroll="">Chapter :1</h2>
+          <video width="800" height="480" controls data-scroll="" data-scroll-speed="2">
+            <source src="/src/assets/movie.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video> 
+          <div class="bandeau" data-scroll="">
+            <img src="/src/assets/brice-1.jpg">
+            <img src="/src/assets/brice-2.jpg">
+          </div>
+          <img src="src/assets/P1040394.jpg" style="width:100vw" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="4" data-scroll-target=".gallery">
+          <img src="src/assets/P1040392.jpg" style="width:100vw" data-scroll="" data-scroll-direction="horizontal" data-scroll-speed="-2" data-scroll-target=".gallery">
+      </section>
+      <section class="citation">
+        <p>"L'amitié est une preuve de confiance,
+            Où naissent nos plus belles confidences,
+            À l'ami des secrets ainsi dévoilés,
+            De peines enfouies restées inavouées.
+            "</p>
+      </section>
     </div>
 
     <script src="src/index.js"></script>
